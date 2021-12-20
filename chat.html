@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="chat.css">
+    <script src="https://kit.fontawesome.com/134c6aabfe.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="chat">
+            <div class="top">
+                
+            </div>
+            <div class="chat-header">
+                
+                <div class="profile">
+                    
+                </div>
+                <div><img src="img/arrow.png" alt="" style="margin-top: 10px; height: 50%;" ></div>
+                <div><img src="img/ramanDP.jpg" alt="" style="height: 70%; border-radius: 50%; margin-top: 5px;"></div>
+                
+                
+                <h3 style="margin: 10px; color: aliceblue;">Raman</h3> 
+                <div style="margin-top: 33px;margin-left: -70px; color: azure; font-size: small;">online</div>
+                <!-- <div class="right"> -->
+                    <div style="display: flex; margin-left: auto;"><img src="img/video.png" alt="" style="margin-top: 7px; height: 50%;"></div>
+                    <div><img src="img/phone.png" alt=""style="height: 50%; border-radius: 45%; margin-left: 20px;margin-top: 9px; margin-right:15px"></div>
+                    <div><img src="img/more.png" alt=""style="height: 50%; border-radius: 50%; margin-top: 9px; margin-right:15px"></div>
+                <!-- </div> -->
+                
+            </div>
+            <div class="chat-box">
+
+            </div>
+            <div class="chat-footer footer1" >
+				
+				<textarea placeholder="  Type a message" id="contentLeft" onclick="displaykb1()"></textarea>
+                <!-- ///////////////////////////////////////////////////////////////////////////////////////fileSelect onclick="uplift()"-->
+                <div onload="setup()">
+                    <form id='formid' action="form.php" method="POST" enctype="multipart/form-data"> 
+                        <input id='fileid' type='file' name='filename' hidden/>
+                        <i class="fas fa-paperclip" id="pin" onclick="setup()"></i>
+                        <!-- <input id='buttonid' type='button' value='Upload MB' />  -->
+                        <!-- <button type='' value='Submit' class="submitBtn" style="display: none;" onclick="addMsg()">  -->
+                    </form> 
+                </div>
+                <!-- //////////////////////////////////////////////////cameraStart -->
+                <div id="container" >
+                    <video autoplay="true" style="position: fixed; margin-left: 300px; margin-top: -600px;"></video>
+                </div>
+                <!-- <button class="btn" onclick="startWebCam()">Start</button> -->
+
+                <i class="fas fa-camera" id="camera" onclick="startWebCam()"></i>
+                <i class="fas fa-arrow-right" id="arrow" onclick="addMsg()"></i>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////keyboard -->
+               
+	<!-- ////////////////////////////////////////////////////////////////////////////////////////////////keyboard -->			
+                
+                 
+				
+			</div>
+        </div>
+    </div>
+
+    <div class="container" id="container2">
+        <div class="chat chat2">
+            <div class="top"></div>
+            <div class="chat-header">
+                
+                <div class="profile">
+                    <div class="left">
+                        
+                    </div>
+                </div>
+                <div><img src="img/arrow.png" alt="" style="margin-top: 10px; height: 50%;" ></div>
+                <div><img src="img/pp.png" alt="" style="height: 70%; border-radius: 50%; margin-top: 5px;"></div>
+                
+                
+                <h3 style="margin: 10px; color: aliceblue;">Shivam</h3>
+                <div style="margin-top: 33px;margin-left: -75px; color: azure; font-size: small;">online</div>
+                
+                   <div style="display: flex; margin-left: auto;"><img src="img/video.png" alt="" style="margin-top: 7px; height: 50%;"></div>
+                   <div><img src="img/phone.png" alt=""style="height: 50%; border-radius: 45%; margin-left: 20px;margin-top: 9px; margin-right:15px"></div>
+                   <div><img src="img/more.png" alt=""style="height: 50%; border-radius: 50%; margin-top: 9px; margin-right:15px"></div>
+                
+                
+            </div>
+            <div class="chat-box2"></div>
+            <div class="chat-footer footer2" style="margin-top: auto;">
+				
+				<textarea placeholder="  Type a message" id="contentRight" onclick="displaykb2()"></textarea>
+                <i class="fas fa-paperclip" id="pin2"></i>
+                <input type="file" id="image_input" style="" onclick="addMsgimg()">
+                <label for="file">choose</label>
+                <i class="fas fa-camera" id="camera2"></i>
+				<i class="fas fa-arrow-right" id="arrow2" onclick="addMsg2()"></i>
+
+                
+				
+			</div>
+        </div>
+    </div>
+    <!-- <div id="container" >
+        <video autoplay="true" style="margin-left: 400px;"></video>
+    </div> -->
+    <div class="keyboardparent">
+        
+
+        <div class="keyboard_wrapper wrapper1">
+            <textarea class="display" id="kb1text" style="resize: none;">
+                
+            </textarea>
+            <i class="fas fa-arrow-right" id="arrow3" onclick="addMsg3()"></i>
+            <div class="key ">
+                <div class="row">
+                    <span data-key="w">w</span>
+                    <span data-key="q">q</span>
+                    <span data-key="e">e</span>
+                    <span data-key="r">r</span>
+                    <span data-key="t">t</span>
+                    <span data-key="y">y</span>
+                    <span data-key="u">u</span>
+                    <span data-key="i">i</span>
+                    <span data-key="o">o</span>
+                    <span data-key="p">p</span>
+                </div>
+                <div class="row">
+                    <span data-key="a">a</span>
+                    <span data-key="s">s</span>
+                    <span data-key="d">d</span>
+                    <span data-key="f">f</span>
+                    <span data-key="g">g</span>
+                    <span data-key="h">h</span>
+                    <span data-key="j">j</span>
+                    <span data-key="k">k</span>
+                    <span data-key="l">l</span>
+                </div>
+                <div class="row">
+                    <span class="caps " >caps</span>  
+                    <span data-key="z">z</span>
+                    <span data-key="x">x</span>
+                    <span data-key="c">c</span>
+                    <span data-key="v">v</span>
+                    <span data-key="b">b</span>
+                    <span data-key="n">n</span>
+                    <span data-key="m">m</span>
+                    <span class="backspace" >
+                        <i class="fa fa-angle-left"></i>
+                        <i class="fa fa-close"></i>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="space" data-key=" ">
+                        Space
+                    </span>
+                </div>
+            </div>
+    
+        </div>
+
+
+        <div class="keyboard_wrapper wrapper2">
+            <textarea class="display" id="kb2text" style="resize: none;">
+                
+            </textarea>
+            <i class="fas fa-arrow-right" id="arrow4" onclick="addMsg4()"></i>
+            <div class="key ">
+                <div class="row">
+                    <span data-key="w">w</span>
+                    <span data-key="q">q</span>
+                    <span data-key="e">e</span>
+                    <span data-key="r">r</span>
+                    <span data-key="t">t</span>
+                    <span data-key="y">y</span>
+                    <span data-key="u">u</span>
+                    <span data-key="i">i</span>
+                    <span data-key="o">o</span>
+                    <span data-key="p">p</span>
+                </div>
+                <div class="row">
+                    <span data-key="a">a</span>
+                    <span data-key="s">s</span>
+                    <span data-key="d">d</span>
+                    <span data-key="f">f</span>
+                    <span data-key="g">g</span>
+                    <span data-key="h">h</span>
+                    <span data-key="j">j</span>
+                    <span data-key="k">k</span>
+                    <span data-key="l">l</span>
+                </div>
+                <div class="row">
+                    <span class="caps " >caps</span>  
+                    <span data-key="z">z</span>
+                    <span data-key="x">x</span>
+                    <span data-key="c">c</span>
+                    <span data-key="v">v</span>
+                    <span data-key="b">b</span>
+                    <span data-key="n">n</span>
+                    <span data-key="m">m</span>
+                    <span class="backspace" >
+                        <i class="fa fa-angle-left"></i>
+                        <i class="fa fa-close"></i>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="space" data-key=" ">
+                        Space
+                    </span>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+
+    <!-- <div id="display_image" ></div> -->
+
+
+
+
+
+</body>
+<script src="chat.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container" id="container2">
+    <div class="chat">
+        <div class="top"></div>
+        <div class="chat-header">
+            
+            <div class="profile">
+                <div class="left">
+                    
+                </div>
+            </div>
+            <div><img src="img/arrow.png" alt="" style="margin-top: 10px; height: 50%;" ></div>
+            <div><img src="img/pp.png" alt="" style="height: 70%; border-radius: 50%; margin-top: 5px;"></div>
+            
+            
+            <h3 style="margin: 10px; color: aliceblue;">Shivam</h3>
+            
+                <div style="display: flex; margin-left: auto;"><img src="img/video.png" alt="" style="margin-top: 7px; height: 50%;"></div>
+                <div><img src="img/phone.png" alt=""style="height: 50%; border-radius: 45%; margin-left: 10px;margin-top: 9px;"></div>
+                <div><img src="img/more.png" alt=""style="height: 50%; border-radius: 50%; margin-top: 9px;"></div>
+            
+            
+        </div>
+        <div class="chat-box2"></div>
+        <div class="chat-footer">
+            
+            <textarea placeholder="  Type a message" id="contentRight"></textarea>
+            <i class="fas fa-paperclip" id="pin"></i>
+            <i class="fas fa-camera" id="camera"></i>
+            <i class="fas fa-arrow-right"></i>
+            
+        </div>
+    </div>
+</div> -->
